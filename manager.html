@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PRS Manager View</title><link rel="stylesheet" href="styles.css?v=4"></head>
+<body>
+<header><div class="wrap hd"><div><h1>PRS Manager View</h1><p>Team results and targets for a chosen day</p></div><nav><a href="index.html">Employee view</a></nav></div></header>
+<main class="wrap">
+  <section class="card" id="source">
+    <span id="srcStatus">No data loaded.</span>
+    <span class="btns"><button id="btnGoogle" class="ghost">Connect Google Sheet</button>
+    <button id="btnRefresh" class="ghost" hidden>Refresh data</button>
+    <button id="btnSignOut" class="ghost" hidden>Disconnect</button>
+    <label class="ghost btn">Load XLSX (demo)<input type="file" id="fileIn" accept=".xlsx,.xlsm,.xls,.ods" hidden></label></span>
+    <div id="srcList" hidden></div>
+  </section>
+  <section class="card search mgr">
+    <label>Date<span class="daypick"><button id="prev" class="second sq" type="button" title="Previous day with data" disabled>‹</button><input id="date" type="date"><button id="next" class="second sq" type="button" title="Next day with data" disabled>›</button></span></label>
+    <label>Show<select id="filter"><option value="all">Everyone</option><option value="below">Below target</option><option value="met">Met target</option><option value="notarget">No target recorded</option><option value="conflict">Data conflict</option></select></label>
+    <label>Search<input id="q" placeholder="Name or ID" autocomplete="off"></label>
+    <button id="show" disabled>Show day</button>
+  </section>
+  <div id="notices"></div>
+  <div id="out" aria-live="polite"></div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://accounts.google.com/gsi/client" async></script>
+<script src="config.js?v=4"></script><script src="core.js?v=4"></script><script src="loader.js?v=4"></script><script src="manager.js?v=4"></script>
+</body></html>
